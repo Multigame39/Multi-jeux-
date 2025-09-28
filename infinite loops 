@@ -1,0 +1,37 @@
+import turtle
+
+# --- Configuration de l'écran ---
+screen = turtle.Screen()
+screen.setup(550, 600, startx=0)
+screen.bgcolor("white")
+
+# --- Créer 5 tortues ---
+tortues = []
+colors = ["red", "blue", "green", "orange", "purple"]  # couleurs différentes
+for c in colors:
+    t = turtle.Turtle()
+    t.speed(11)
+    t.color(c)
+    tortues.append(t)
+
+# --- Fonction pour faire dessiner une tortue ---
+def dessiner(t):
+    t.right(45)
+    for i in range(150):
+        t.circle(25)
+        if 7 < i < 62:
+            t.left(5)
+        if 80 < i < 133:
+            t.right(5)
+        if i < 80:
+            t.forward(10)
+        else:
+            t.forward(5)
+
+# --- Boucle infinie ---
+while True:
+    for t in tortues:
+        dessiner(t)
+
+# garder la fenêtre ouverte
+screen.mainloop()
